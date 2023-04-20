@@ -1,0 +1,41 @@
+:root {
+    --size: 30vw;
+    --ear-size: calc(var(--size) / 2.5);
+    --ear-offset: calc(var(--ear-size) / -3.5)
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.head {
+    width: var(--size);
+    height: var(--size);
+    background-color: #000;
+    border-radius: 50%;
+    position: relative;
+}
+
+.ear {
+    width: var(--ear-size);
+    height: var(--ear-size);
+    background-color: #000;
+    position: absolute;
+    top: calc(var(--ear-offset) / 1.5);
+}
+
+.ear:first-child {
+    left: var(--ear-offset);
+    border-bottom-left-radius: 80%;
+    transform: rotate(27deg);
+}
+
+.ear:nth-child(2) {
+    right: var(--ear-offset);
+    border-bottom-right-radius: 80%;
+    transform: rotate(-27deg);
+}
