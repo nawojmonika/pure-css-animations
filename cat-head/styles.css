@@ -1,7 +1,8 @@
 :root {
     --size: 30vw;
     --ear-size: calc(var(--size) / 2.5);
-    --ear-offset: calc(var(--ear-size) / -3.5)
+    --ear-offset: calc(var(--ear-size) / -3.5);
+    --nose-size: calc(var(--size) / 8);
 }
 
 body {
@@ -38,4 +39,16 @@ body {
     right: var(--ear-offset);
     border-bottom-right-radius: 80%;
     transform: rotate(-27deg);
+}
+
+.nose {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid pink;
+    position: absolute;
+    top: 55%;
+    left: calc(50% - (var(--nose-size) / 2));
+    border-radius: 30%;
 }
