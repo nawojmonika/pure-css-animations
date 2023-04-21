@@ -7,6 +7,7 @@
     --eye-iris-size: calc(var(--eye-size) * 0.75);
     --eye-pupil-size: calc(var(--eye-iris-size) * 0.8);
     --nose-size: calc(var(--size) / 10);
+    --mouth-size: calc(var(--nose-size) * 1.4);
 }
 
 * {
@@ -79,7 +80,7 @@ body {
 
 /* Eye iris */
 
-.eyes>div::before, .eyes>div::after{
+.eyes>div::before {
     content: '';
     position: absolute;
     height: var(--eye-iris-size);
@@ -97,6 +98,11 @@ body {
     width: var(--eye-pupil-size);
     background-color: #000;
     border-radius: 0 100%;
+    transform: rotate(-12deg);
+}
+
+.eyes>div:nth-child(2)::after{
+    transform: rotate(12deg);
 }
 
 .nose {
@@ -110,4 +116,24 @@ body {
     left: calc(35% - (var(--nose-size) / 2));
     border-radius: 30%;
     transform: rotate(45deg);
+}
+
+/* mouth */
+
+.nose::before, .nose::after {
+    content: '';
+    position: absolute;
+    height: var(--mouth-size);
+    width: calc(var(--mouth-size) * 1.4);
+    border-radius: 0 0 50% 50%;
+    border-bottom: 1px solid #fff;
+}
+
+.nose::before {
+    border-right: 1px solid #fff;
+    right: 0;
+}
+
+.nose::after {
+    border-left: 1px solid #fff;
 }
