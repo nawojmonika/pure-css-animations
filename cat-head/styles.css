@@ -32,14 +32,14 @@ body {
     transform: rotate(-45deg);
 }
 
-.ears, .eyes {
+.face {
     position: absolute;
     width: 100%;
     height: 100%;
     transform: rotate(45deg);
 }
 
-.ears > div {
+.ear {
     position: absolute;
     top: calc(var(--ear-offset) / 2.7);
     width: var(--ear-size);
@@ -47,19 +47,19 @@ body {
     background-color: #000;
 }
 
-.ears > div:first-child {
+.ear:first-child {
     left: var(--ear-offset);
     border-bottom-left-radius: 100%;
     transform: rotate(27deg);
 }
 
-.ears>div:nth-child(2) {
+.ear ~ .ear {
     right: var(--ear-offset);
     border-bottom-right-radius: 100%;
     transform: rotate(-27deg);
 }
 
-.eyes > div {
+.eye {
     display: flex;
     height: var(--eye-size);
     width: var(--eye-size);
@@ -73,14 +73,14 @@ body {
     align-items: center;
 }
 
-.eyes > div:nth-child(2) {
+.eye ~ .eye {
     left: var(--eye-offset);
     transform: rotate(30deg);
 }
 
 /* Eye iris */
 
-.eyes>div::before {
+.eye::before {
     content: '';
     position: absolute;
     height: var(--eye-iris-size);
@@ -91,7 +91,7 @@ body {
 
 /* Eye pupil */
 
-.eyes>div::after {
+.eye::after {
     content: '';
     position: absolute;
     height: var(--eye-pupil-size);
@@ -101,7 +101,7 @@ body {
     transform: rotate(-12deg);
 }
 
-.eyes>div:nth-child(2)::after{
+.eye ~ .eye::after{
     transform: rotate(12deg);
 }
 
@@ -113,9 +113,8 @@ body {
     border-top: var(--nose-size) solid pink;
     position: absolute;
     top: 55%;
-    left: calc(35% - (var(--nose-size) / 2));
+    left: calc(45% - (var(--nose-size) / 2));
     border-radius: 30%;
-    transform: rotate(45deg);
 }
 
 /* mouth */
