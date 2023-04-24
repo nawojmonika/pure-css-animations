@@ -1,0 +1,39 @@
+:root {
+	--plate-size: 30vw;
+	--inner-plate-size: calc(var(--plate-size) / 2);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	background-color: #907564;
+}
+
+.plate {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: #fff;
+	height: var(--plate-size);
+	width: var(--plate-size);
+	border-radius: 50%;
+	transform: rotate3d(8, -1, -1, -0.2turn);
+}
+
+.plate::before {
+	content: '';
+	position: absolute;
+	background-color: #aaa;
+	height: var(--inner-plate-size);
+	width: var(--inner-plate-size);
+	border-radius: 50%;
+}
