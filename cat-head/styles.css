@@ -4,8 +4,7 @@
 	--ear-offset: calc(var(--ear-size) / -2.5);
 	--eye-size: calc(var(--size) / 5);
 	--eye-offset: calc(var(--size) / 1.7);
-	--eye-iris-size: calc(var(--eye-size) * 0.75);
-	--eye-pupil-size: calc(var(--eye-iris-size) * 0.8);
+	--eye-pupil-size: calc(var(--eye-size) * 0.6);
 	--nose-size: calc(var(--size) / 10);
 	--mouth-size: calc(var(--nose-size) * 1.4);
 }
@@ -63,7 +62,7 @@ body {
 	display: flex;
 	height: var(--eye-size);
 	width: var(--eye-size);
-	background-color: greenyellow;
+	background: radial-gradient(#f0bb62 30%, #519259, #064635);
 	position: absolute;
 	top: 32%;
 	right: var(--eye-offset);
@@ -78,20 +77,9 @@ body {
 	transform: rotate(30deg);
 }
 
-/* Eye iris */
-
-.eye::before {
-	content: '';
-	position: absolute;
-	height: var(--eye-iris-size);
-	width: var(--eye-iris-size);
-	background-color: yellow;
-	border-radius: 50%;
-}
-
 /* Eye pupil */
 
-.eye::after {
+.eye::before {
 	content: '';
 	position: absolute;
 	height: var(--eye-pupil-size);
@@ -101,7 +89,7 @@ body {
 	transform: rotate(-12deg);
 }
 
-.eye ~ .eye::after {
+.eye ~ .eye::before {
 	transform: rotate(12deg);
 }
 
