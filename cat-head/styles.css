@@ -4,9 +4,10 @@
 	--ear-offset: calc(var(--ear-size) / -2.5);
 	--eye-size: calc(var(--size) / 5);
 	--eye-offset: calc(var(--size) / 1.7);
-	--eye-pupil-size: calc(var(--eye-size) * 0.6);
+	--eye-pupil-size: calc(var(--eye-size) * 0.5);
 	--nose-size: calc(var(--size) / 10);
 	--mouth-size: calc(var(--nose-size) * 1.4);
+	--animation-length: 1.7s;
 }
 
 * {
@@ -47,12 +48,14 @@ body {
 
 .ear:first-child {
 	border-bottom-left-radius: 100%;
-	animation: 800ms ease-in-out infinite alternate forwards leftEarRotation;
+	animation: var(--animation-length) ease-in-out infinite alternate forwards
+		leftEarRotation;
 }
 
 .ear ~ .ear {
 	border-bottom-right-radius: 100%;
-	animation: 800ms ease-in-out infinite alternate forwards rightEarRotation;
+	animation: var(--animation-length) ease-in-out infinite alternate forwards
+		rightEarRotation;
 }
 
 .eye {
@@ -79,11 +82,12 @@ body {
 .eye::before {
 	content: '';
 	position: absolute;
-	height: var(--eye-pupil-size);
-	width: var(--eye-pupil-size);
+	height: calc(var(--eye-pupil-size));
+	width: calc(var(--eye-pupil-size));
 	background-color: #000;
-	border-radius: 0 100%;
 	transform: rotate(-12deg);
+	animation: var(--animation-length) ease-in-out infinite alternate forwards
+		pupilAnimation;
 }
 
 .eye ~ .eye::before {
@@ -225,5 +229,17 @@ body {
 		transform: rotate(-51deg);
 		right: calc(var(--ear-offset) * 0.6);
 		top: calc(var(--ear-offset) / 1.2);
+	}
+}
+
+@keyframes pupilAnimation {
+	0% {
+		border-radius: 50%;
+	}
+	20% {
+		border-radius: 50%;
+	}
+	100% {
+		border-radius: 0 100%;
 	}
 }
