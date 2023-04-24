@@ -150,6 +150,18 @@ body {
 	position: relative;
 }
 
+.whiskers:first-child {
+	transform-origin: right;
+	animation: var(--animation-length) ease-in-out infinite alternate forwards
+		leftWhiskersAnimation;
+}
+
+.whiskers:nth-child(2) {
+	transform-origin: left;
+	animation: var(--animation-length) ease-in-out infinite alternate forwards
+		rightWhiskersAnimation;
+}
+
 .whiskers:first-child > div:first-child {
 	transform: rotate(-5deg);
 }
@@ -236,10 +248,40 @@ body {
 	0% {
 		border-radius: 50%;
 	}
-	20% {
+	40% {
 		border-radius: 50%;
 	}
 	100% {
 		border-radius: 0 100%;
+	}
+}
+
+@keyframes leftWhiskersAnimation {
+	0% {
+		transform: rotate(-33deg);
+	}
+	20% {
+		transform: rotate(-33deg);
+	}
+	80% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(0);
+	}
+}
+
+@keyframes rightWhiskersAnimation {
+	0% {
+		transform: rotate(33deg);
+	}
+	20% {
+		transform: rotate(33deg);
+	}
+	80% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(0);
 	}
 }
