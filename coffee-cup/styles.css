@@ -1,6 +1,7 @@
 :root {
 	--plate-size: 30vw;
 	--inner-plate-size: calc(var(--plate-size) / 2);
+	--cup-size: calc(var(--plate-size) * 0.8);
 }
 
 * {
@@ -15,6 +16,23 @@ body {
 	height: 100vh;
 	margin: 0;
 	background-color: #907564;
+}
+
+.container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.cup {
+	position: absolute;
+	bottom: calc(var(--inner-plate-size) * 0.9);
+	z-index: 2;
+	background-color: #fff;
+	height: var(--cup-size);
+	width: var(--cup-size);
+	border-radius: 20% 20% 50% 50%;
 }
 
 .plate {
