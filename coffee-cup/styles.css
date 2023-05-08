@@ -3,6 +3,7 @@
 	--inner-plate-size: calc(var(--plate-size) / 2);
 	--cup-size: calc(var(--plate-size) * 0.8);
 	--cup-ear-size: calc(var(--cup-size) * 0.4);
+	--coffee-size: calc(var(--cup-size) * 0.9);
 }
 
 * {
@@ -24,11 +25,14 @@ body {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	margin-bottom: 10vh;
 }
 
 .cup {
-	position: absolute;
-	bottom: calc(var(--inner-plate-size) * 0.9);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	bottom: calc(var(--plate-size) * -0.55);
 	z-index: 2;
 	background-color: #fff;
 	height: var(--cup-size);
@@ -54,17 +58,28 @@ body {
 	align-items: center;
 	position: relative;
 	background-color: #fff;
-	height: var(--plate-size);
 	width: var(--plate-size);
-	border-radius: 50%;
-	transform: rotate3d(8, -1, -1, -0.2turn);
+	height: calc(var(--plate-size) / 2);
+	border-radius: var(--plate-size) / calc(var(--plate-size) / 2);
 }
 
 .plate::before {
 	content: '';
 	position: absolute;
 	background-color: #aaa;
-	height: var(--inner-plate-size);
 	width: var(--inner-plate-size);
+	height: calc(var(--inner-plate-size) / 2);
+	border-radius: var(--inner-plate-size) / calc(var(--inner-plate-size) / 2);
+}
+
+.coffee {
+	position: absolute;
+	width: var(--coffee-size);
+	height: var(--coffee-size);
+	top: calc(var(--cup-size) * -0.39);
+	z-index: 3;
 	border-radius: 50%;
+	transform: rotate3d(1, 0, 0, 0.2turn);
+	background-color: #49281a;
+	border-top: solid red 2vw;
 }
